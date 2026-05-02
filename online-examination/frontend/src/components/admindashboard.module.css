@@ -1,0 +1,240 @@
+/* admindashboard.module.css */
+
+:root {
+  --sidebar-width: 260px;
+  --primary-color: #4f46e5;
+  --bg-light: #f8fafc;
+  --text-dark: #1e293b;
+  --glass-bg: rgba(255, 255, 255, 0.9);
+}
+
+.dashboardContainer {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* SIDEBAR STYLES */
+.sidebar {
+  width: var(--sidebar-width);
+  background-color: #1e293b; /* Deep slate */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.sidebarBrand {
+  padding: 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebarBrand h2 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  background: linear-gradient(to right, #818cf8, #c084fc);
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebarMenu {
+  flex: 1;
+  padding: 1.5rem 0;
+}
+
+.sidebarMenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebarMenu li {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.sidebarMenu li:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.sidebarMenu li.active {
+  background: var(--primary-color);
+  color: white;
+  border-right: 4px solid #818cf8;
+}
+
+.icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+}
+
+.sidebarFooter {
+  padding: 2rem;
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 0.8rem;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.logoutBtn:hover {
+  background: #ef4444;
+  color: white;
+}
+
+/* MAIN CONTENT STYLES */
+.mainContent {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  padding: 2.5rem;
+}
+
+.topNav {
+  margin-bottom: 3rem;
+}
+
+.welcomeText h1 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+}
+
+.welcomeText p {
+  color: #64748b;
+  font-size: 1.1rem;
+}
+
+/* STATS GRID */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.statCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.statIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  margin-right: 1.5rem;
+}
+
+.blue { background: #e0e7ff; color: #4338ca; }
+.purple { background: #f3e8ff; color: #7e22ce; }
+.green { background: #dcfce7; color: #15803d; }
+
+.statInfo h3 {
+  font-size: 0.9rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.2rem;
+}
+
+.statValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+/* QUICK ACTIONS */
+.recentActivity {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+}
+
+.activityHeader h2 {
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem;
+}
+
+.actionButtons {
+  display: flex;
+  gap: 1rem;
+}
+
+.actionButtons button {
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  border: none;
+  background: var(--primary-color);
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 4px 14px 0 rgba(79, 70, 229, 0.3);
+}
+
+.actionButtons button:hover {
+  background: #4338ca;
+  transform: scale(1.02);
+}
+
+.actionButtons .secondary {
+  background: white;
+  color: var(--primary-color);
+  border: 2px solid #e2e8f0;
+  box-shadow: none;
+}
+
+.actionButtons .secondary:hover {
+  background: #f8fafc;
+  border-color: var(--primary-color);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 80px;
+  }
+  .sidebarBrand h2, .sidebarMenu li span:not(.icon), .logoutBtn {
+    display: none;
+  }
+  .mainContent {
+    margin-left: 80px;
+  }
+  .icon {
+    margin-right: 0;
+    font-size: 1.5rem;
+  }
+}

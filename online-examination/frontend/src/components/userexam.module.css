@@ -1,0 +1,203 @@
+/* userexam.module.css */
+
+.examContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+.examTitle {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 3rem;
+  font-weight: 800;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  letter-spacing: -1px;
+}
+
+.examGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  perspective: 1000px; /* For a slight 3D feel */
+}
+
+.examCard {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 24px;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+}
+
+.examCard:hover {
+  transform: translateY(-10px) scale(1.02);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.3);
+}
+
+.examCard h3 {
+  color: white;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.examCard p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+/* BUTTON STYLING */
+.startBtn {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 14px;
+  border: none;
+  background: white;
+  color: #667eea;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.startBtn:hover {
+  background: #6366f1;
+  color: white;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+}
+
+.startBtn:active {
+  transform: translateY(0);
+}
+
+/* EMPTY STATE */
+.noExam {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  color: white;
+  font-size: 1.2rem;
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+/* ANIMATION FOR CARDS LOADING */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.examCard {
+  animation: fadeInUp 0.5s ease backwards;
+}
+
+/* Staggered animation for children */
+.examCard:nth-child(1) { animation-delay: 0.1s; }
+.examCard:nth-child(2) { animation-delay: 0.2s; }
+.examCard:nth-child(3) { animation-delay: 0.3s; }
+.examCard:nth-child(4) { animation-delay: 0.4s; }
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .examTitle {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .examGrid {
+    grid-template-columns: 1fr;
+    padding: 0 1rem;
+  }
+
+  .examCard {
+    padding: 1.5rem;
+  }
+}
+
+/* ... (keep your previous container and grid styles) ... */
+
+.topNav {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.backBtn {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.backBtn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(-5px);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+}
+
+.qCount {
+    font-size: 0.75rem;
+    background: rgba(99, 102, 241, 0.2);
+    color: #e0e7ff;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.noExamBox {
+    grid-column: 1 / -1;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 4rem;
+    text-align: center;
+    border: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+.noExam {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.2rem;
+}
